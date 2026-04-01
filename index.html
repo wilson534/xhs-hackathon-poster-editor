@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小红书海报编辑器</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="editor-panel">
+      <div class="panel-header">
+        <p class="eyebrow">实时改图</p>
+        <h1>小红书海报编辑器</h1>
+        <p class="panel-copy">左侧直接填写文案并上传图片，右侧会立刻生成替换后的海报。</p>
+      </div>
+
+      <section class="field-group">
+        <label class="field">
+          <span>账号名</span>
+          <input id="handle" type="text" maxlength="24" placeholder="@yourname" />
+        </label>
+
+        <label class="field">
+          <span>标题</span>
+          <textarea id="titleText" rows="3" placeholder="每行一句，最多两行"></textarea>
+        </label>
+
+        <label class="field">
+          <span>正文</span>
+          <div id="bodyLinesEditor" class="body-lines-editor" aria-live="polite"></div>
+          <p class="field-hint">选择几行就显示几个输入框，右侧会按对应行数实时排版。</p>
+        </label>
+
+        <div class="field">
+          <span>正文行数</span>
+          <div class="segment-control" role="group" aria-label="正文行数">
+            <button type="button" class="segment-button is-active" data-body-line-count="1" aria-pressed="false">1</button>
+            <button type="button" class="segment-button" data-body-line-count="2" aria-pressed="false">2</button>
+            <button type="button" class="segment-button" data-body-line-count="3" aria-pressed="false">3</button>
+            <button type="button" class="segment-button" data-body-line-count="4" aria-pressed="true">4</button>
+          </div>
+          <p class="field-hint">支持 1-4 行布局，切换后会按当前正文自动重排。</p>
+        </div>
+
+        <div class="field">
+          <div class="field-row">
+            <span>高亮设置</span>
+            <label class="switch-control" for="highlightEnabled">
+              <input id="highlightEnabled" type="checkbox" />
+              <span>启用高亮</span>
+            </label>
+          </div>
+
+          <div id="highlightControls" class="highlight-controls">
+            <div class="highlight-subgroup">
+              <span class="sub-label">高亮行</span>
+              <div id="highlightLineSelector" class="segment-control segment-control-dynamic" role="group" aria-label="高亮行"></div>
+            </div>
+
+            <div class="highlight-subgroup">
+              <span class="sub-label">高亮颜色</span>
+              <div id="highlightPresetColors" class="color-chip-grid" role="group" aria-label="高亮颜色预设"></div>
+              <label class="color-picker-field" for="highlightCustomColor">
+                <span>自定义颜色</span>
+                <input id="highlightCustomColor" type="color" value="#7af0e9" />
+              </label>
+            </div>
+          </div>
+
+          <p class="field-hint">可选择正文任一行进入高亮，高亮颜色支持预设和自定义。</p>
+        </div>
+
+        <label class="field">
+          <span>上传图片</span>
+          <input id="avatarFile" type="file" accept="image/png,image/jpeg,image/webp,image/jpg" />
+          <p class="field-hint">支持 PNG / JPG，上传后右侧立即更新。重新选一张图会直接覆盖。</p>
+          <p id="avatarMeta" class="field-meta">当前未上传图片</p>
+        </label>
+
+        <div class="field transform-group">
+          <div class="transform-header">
+            <span>图片调整</span>
+            <p>上传后可直接微调照片位置和大小</p>
+          </div>
+
+          <label class="slider-field">
+            <div class="slider-label">
+              <span>缩放</span>
+              <output id="avatarScaleValue" for="avatarScale">100%</output>
+            </div>
+            <input id="avatarScale" type="range" min="1" max="2.8" step="0.01" value="1" disabled />
+          </label>
+
+          <label class="slider-field">
+            <div class="slider-label">
+              <span>左右</span>
+              <output id="avatarOffsetXValue" for="avatarOffsetX">0</output>
+            </div>
+            <input id="avatarOffsetX" type="range" min="-360" max="360" step="1" value="0" disabled />
+          </label>
+
+          <label class="slider-field">
+            <div class="slider-label">
+              <span>上下</span>
+              <output id="avatarOffsetYValue" for="avatarOffsetY">0</output>
+            </div>
+            <input id="avatarOffsetY" type="range" min="-260" max="260" step="1" value="0" disabled />
+          </label>
+        </div>
+      </section>
+
+      <section class="field-group action-group">
+        <button id="resetButton" type="button" class="secondary-button">恢复默认</button>
+        <button id="exportPng" type="button">导出 PNG</button>
+      </section>
+
+      <p id="statusText" class="status-text" aria-live="polite">页面已就绪，左侧修改会实时更新右侧海报。</p>
+    </aside>
+
+    <main class="workspace-panel">
+      <div class="workspace-header">
+        <div>
+          <p class="workspace-eyebrow">实时预览</p>
+          <h2>上传后就是最终成品效果</h2>
+        </div>
+        <span class="poster-size">1440 × 2400</span>
+      </div>
+
+      <div class="poster-stage">
+        <canvas id="previewCanvas" width="1440" height="2400"></canvas>
+      </div>
+
+      <p class="workspace-note">海报会按模板区域自动裁切图片；如果图片不满意，左侧重新选一张即可。</p>
+    </main>
+  </div>
+
+  <script src="./app.js" type="module"></script>
+</body>
+</html>

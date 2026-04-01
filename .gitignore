@@ -1,0 +1,31 @@
+.vercel/
+.env*.local
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+uploads/
+
+# 私有或受限素材
+*.psd
+2.ttf
+0.pic
+0.record_thumb
+kv_v1.dat
+test-edit.psd
+test-edit-out.psd
+
+# 本地调试与临时产物
+.tmp-*.js
+tmp-*.png
+tmp-*.jpg
+tmp-*.jpeg
+/@bzmxs .png
+/handle-only.png
+/handle-only-on-black.png
+/tmp-handle.png
+/tmp-title.png
+/base-template.png
+/body-original.png
+/body-original-preview.png
+/他决定来参加 黑客松巅峰赛.png
