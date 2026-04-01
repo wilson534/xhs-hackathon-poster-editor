@@ -19,6 +19,11 @@ test-edit-out.psd
 tmp-*.png
 tmp-*.jpg
 tmp-*.jpeg
+/layer-high line.png
+/layer-图层 113.png
+/layer-矢量智能对象.png
+/assets/avatar-overlay.png
+/assets/highlight-overlay.png
 /@bzmxs .png
 /handle-only.png
 /handle-only-on-black.png

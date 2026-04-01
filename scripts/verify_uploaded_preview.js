@@ -2,7 +2,7 @@ const { chromium } = require("playwright");
 const path = require("path");
 
 const imagePath =
-  process.argv[2] || path.join(__dirname, "..", "assets", "reference-composite.png");
+  process.argv[2] || path.join(__dirname, "..", "docs", "assets", "reference-upload.png");
 const outputPath = process.argv[3] || "/private/tmp/xhs-uploaded.png";
 const baseUrl = process.env.POSTER_BASE_URL || "http://127.0.0.1:4174/";
 const browserPath = process.env.PLAYWRIGHT_EXECUTABLE_PATH;
