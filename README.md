@@ -5,7 +5,10 @@
 
 [在线体验](https://xhs-hackathon-poster.vercel.app) · [开源发布说明](./docs/open-source-release.md) · [内置 Skill](./skills/xhs-poster-editor/SKILL.md)
 
-![项目预览图](./.github/assets/social-preview-example.png)
+<p align="center">
+  <img src="./.github/assets/social-preview-example.png" alt="成品海报预览" width="31%" />
+  <img src="./.github/assets/editor-ui-preview.png" alt="编辑器界面预览" width="66%" />
+</p>
 
 ## 这个项目能做什么
 

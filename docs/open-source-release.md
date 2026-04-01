@@ -40,8 +40,13 @@ gh repo edit \
 
 ## README / Social Preview 资源
 
-- README 与 Social Preview 统一使用：`./.github/assets/social-preview-example.png`
-- 建议将这张图同时设置为 GitHub Social Preview
+- GitHub Social Preview：`./.github/assets/social-preview-example.png`
+- README 顶部展示：
+  - `./.github/assets/social-preview-example.png`
+  - `./.github/assets/editor-ui-preview.png`
+- 说明：
+  - README 可以放多张图并排展示
+  - GitHub Social Preview 只能设置一张图
 - 封面图更新命令：
 
 ```bash
