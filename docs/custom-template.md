@@ -32,10 +32,10 @@ python3 scripts/export_template_assets.py --psd /path/to/your-template.psd
 
 ## 关于字体
 
-如果你拥有字体授权，可以把对应字体文件放到项目根目录命名为：
+当前仓库默认使用根目录的：
 
 ```text
 2.ttf
 ```
 
-页面会自动优先使用它。没有字体文件也能运行，只是不会做到原模板级别的字形贴合。
+如果你要换成自己的模板字体，直接替换这个文件，或同步修改 `styles.css` 中的 `@font-face`。
